@@ -1,4 +1,4 @@
-const numbersArray = [1, 2, 3, 3, 4, 5, 5, 5, 5, 6, 'a'];
+const elementsArray = [1, 2, 3, 3, 4, 5, 5, 5, 5, 6, 'a'];
 
 
 function removeElement(array, item) {
@@ -10,4 +10,4 @@ function removeElement(array, item) {
     return array;
 }
 
-console.log(removeElement(numbersArray, 3));
+console.log(removeElement(elementsArray, 3));
