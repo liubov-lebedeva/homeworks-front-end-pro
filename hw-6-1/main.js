@@ -3,7 +3,7 @@ const inputSymbols = prompt("Input comma-separated symbols:");
 const arrayOfSymbols = inputSymbols.split(",");
 
 
-function removeSymbols(line, symbols) {
+const removeSymbols = (line, symbols) => {
     let resultString = "";
     for (let i = 0; i < line.length; i++) {
         if (symbols.includes(line[i])) {
