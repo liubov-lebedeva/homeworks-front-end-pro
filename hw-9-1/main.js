@@ -12,19 +12,15 @@ const company = {
 };
 
 function getSalariesSum(obj) {
-    let sumSalaries = 0;
+    if (Array.isArray(obj)) {
+        return obj.reduce((sum, employee) => sum + employee.salary, 0);
+    }
 
+    let sumSalaries = 0;
     for (let key in obj) {
-        if (Array.isArray(obj[key])) {
-            sumSalaries += obj[key].reduce((sum, employee) => sum + employee.salary, 0);
-        } else if (typeof obj[key] === 'object') {
-            sumSalaries += getSalariesSum(obj[key]);
-        }
+        sumSalaries += getSalariesSum(obj[key]);
     }
     return sumSalaries;
 }
 
 console.log(getSalariesSum(company));
-
-
-
