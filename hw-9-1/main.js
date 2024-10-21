@@ -8,5 +8,13 @@ const company = {
             automation: [{name: 'Pavlo', salary: 500}, {name: 'Alex', salary: 500}, {name: 'Mark', salary: 1000}],
         }
     },
-    SMM: [{name: 'Denis', salary: 400}, {name: 'Ira', salary: 600}]
+
 };
+
+function sumOfSalariesInArray (array) {
+    return array.reduce((sum, employee) => sum + employee.salary, 0);
+}
+
+const SMM = [{name: 'Denis', salary: 400}, {name: 'Ira', salary: 600}];
+
+console.log(sumOfSalariesInArray(SMM));
