@@ -22,6 +22,5 @@ const contactCards = {
 
 contactCards.addContact('Ivan', '125556789', 'vanya@homework.com');
 
-console.log(contactCards);
 console.log(contactCards.getContactByName('Dmytro'));
 console.log(contactCards.getContactByName('Lena'));
