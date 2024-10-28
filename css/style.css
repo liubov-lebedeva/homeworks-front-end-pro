@@ -48,10 +48,14 @@ td {
     height: 50px;
 }
 
-#textBlock {
+.textBlock {
     font-size: 30px;
     color: black;
     padding: 20px;
+}
+
+.textBlockToggled {
+    color: red;
 }
 
 #changeColorButton {
@@ -60,6 +64,11 @@ td {
     height: 40px;
     background-color: lightblue;
     border: black 2px solid;
+    cursor: pointer;
+}
+
+#changeColorButton:active {
+    transform: scale(1.1);
 }
 
 .randomImage {
