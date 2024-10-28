@@ -76,3 +76,16 @@ td {
     margin: 0 auto;
     padding: 20px;
 }
+
+.button {
+    margin: 10px auto;
+    width: 100px;
+    height: 40px;
+    background-color: lightblue;
+    border: black 2px solid;
+    cursor: pointer;
+}
+
+.button:active {
+    transform: scale(1.1);
+}
