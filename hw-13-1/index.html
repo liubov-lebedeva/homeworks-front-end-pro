@@ -13,6 +13,29 @@
     <ul class="homeworks-list">
         <li class="homeworks-item home"><a href="../index.html">Home</a></li>
     </ul>
+    <div class="form-box">
+        <form id="form-contact-box">
+            <h1 class="form-title">We would like to help you</h1>
+            <div class="form-input">
+                <input type="name" id="name" name="name" placeholder="Name" autocomplete="off" required>
+                <div id="name-error" class="error"></div>
+            </div><br>
+            <div class="form-input">
+                <textarea id="message" name="message" placeholder="Message" required></textarea>
+                <div id="message-error" class="error"></div>
+            </div>
+            <h2 class="form-subtitle">How to answer you?</h2>
+            <div class="form-input">
+                <input type="text" name="phone" id="phone" value="" placeholder="Phone" autocomplete="off" required>
+                <div id="phone-error" class="error"></div>
+            </div><br>
+            <div class="form-input">
+                <input type="email" id="email" name="email" placeholder="Email" autocomplete="off" required>
+                <div id="email-error" class="error"></div>
+            </div><br>
+            <button class="submit-button" type="submit">Send message</button>
+        </form>
+    </div>
 </div>
 </body>
 <script src="main.js"></script>
