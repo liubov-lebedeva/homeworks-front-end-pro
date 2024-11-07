@@ -136,3 +136,7 @@ td {
     cursor: pointer;
     color: #fff;
 }
+
+.margin-b-10 {
+    margin-bottom: 10px;
+}
