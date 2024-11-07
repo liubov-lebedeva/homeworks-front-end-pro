@@ -137,6 +137,16 @@ td {
     color: #fff;
 }
 
+.submit-button:active {
+    transform: scale(0.8);
+    transition: 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
 .margin-b-10 {
     margin-bottom: 10px;
+}
+
+.error {
+    color: red;
+    font-size: 18px;
 }
