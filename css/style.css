@@ -127,6 +127,13 @@ td {
     outline: none;
 }
 
+.form-input textarea {
+    overflow: hidden;
+    max-width: 360px;
+    min-width: 360px;
+    min-height: 60px;
+}
+
 .submit-button {
     text-align: center;
     padding: 15px;
