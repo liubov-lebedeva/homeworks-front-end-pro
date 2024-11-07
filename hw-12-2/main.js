@@ -1,8 +1,8 @@
-const buttonContainer = document.getElementById('buttonContainer');
+const buttonContainer = document.getElementById('button-container');
 
 
 buttonContainer.addEventListener('click', function(event) {
     if (event.target.tagName === 'BUTTON') {
-        alert(`Клікнуто на кнопці: ${event.target.textContent}`);
+        alert(`Button pressed: ${event.target.textContent}`);
     }
 });
