@@ -118,7 +118,7 @@ td {
     margin: 14px 0;
 }
 
-.form-input input, .form-input textarea {
+.form-input input, .form-input textarea, .task-list li {
     padding: 15px 0 15px 20px;
     width: 100%;
     background: rgb(253, 247, 247);
@@ -156,4 +156,31 @@ td {
 .error {
     color: red;
     font-size: 18px;
+}
+
+.task-list {
+    list-style-type: none;
+}
+
+.task-list li {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+}
+
+.task-list button {
+    cursor: pointer;
+    border-radius: 30px;
+    border: 1px solid black;
+    padding: 5px 10px;
+}
+
+.task-list button:active {
+    transform: scale(0.9);
+    transition: 0.4s cubic-bezier(0.33, 1, 0.68, 1);
 }
