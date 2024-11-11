@@ -13,6 +13,20 @@
     <ul class="homeworks-list">
         <li class="homeworks-item home"><a href="../index.html">Home</a></li>
     </ul>
+    <div class="slider">
+        <div class="slide active"><img src="images/1.jpg" alt="img" class="img"></div>
+        <div class="slide"><img src="images/2.jpg" alt="img" class="img"></div>
+        <div class="slide"><img src="images/3.jpg" alt="img" class="img"></div>
+
+        <a class="prev" onclick="changeSlide(-1)">❮ Prev</a>
+        <a class="next" onclick="changeSlide(1)">Next ❯</a>
+
+        <div class="dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
 </div>
 </body>
 <script src="main.js"></script>
