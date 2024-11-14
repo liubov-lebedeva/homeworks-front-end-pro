@@ -3,10 +3,11 @@ const input = document.querySelector(".js--form__input");
 const todosWrapper = document.querySelector(".js--todos-wrapper");
 
 let savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+let serialNumber = +localStorage.getItem("serialNumber") || 0;
 
 function initializeTodos() {
     savedTodos.forEach(todo => {
-        addTodoToDOM(todo.text, todo.completed);
+        addTodoToDOM(todo.id, todo.text, todo.completed);
     });
 }
 
@@ -14,13 +15,21 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     const taskText = input.value.trim();
     if (taskText) {
-        addTodoToDOM(taskText, false);
-        saveToLocalStorage(taskText, false);
+        const id = createId();
+        addTodoToDOM(id, taskText, false);
+        saveToLocalStorage(id, taskText, false);
         input.value = "";
     }
 });
 
-function addTodoToDOM(text, completed) {
+
+const createId = () => {
+    serialNumber++;
+    localStorage.setItem("serialNumber", serialNumber);
+    return serialNumber;
+}
+
+function addTodoToDOM(id, text, completed) {
     const li = document.createElement("li");
     li.classList.add("todo-item");
     if (completed) li.classList.add("todo-item--checked");
@@ -30,7 +39,7 @@ function addTodoToDOM(text, completed) {
     checkbox.checked = completed;
     checkbox.addEventListener("change", () => {
         li.classList.toggle("todo-item--checked");
-        updateLocalStorage(text, checkbox.checked);
+        updateLocalStorage(id, checkbox.checked);
     });
 
     const span = document.createElement("span");
@@ -42,7 +51,7 @@ function addTodoToDOM(text, completed) {
     deleteBtn.classList.add("todo-item__delete");
     deleteBtn.addEventListener("click", () => {
         li.remove();
-        deleteFromLocalStorage(text);
+        deleteFromLocalStorage(id);
     });
 
     li.appendChild(checkbox);
@@ -52,21 +61,19 @@ function addTodoToDOM(text, completed) {
     todosWrapper.appendChild(li);
 }
 
-function saveToLocalStorage(text, completed) {
-    savedTodos.push({text, completed});
+function saveToLocalStorage(id, text, completed) {
+    savedTodos.push({id, text, completed});
     localStorage.setItem("todos", JSON.stringify(savedTodos));
 }
 
-function updateLocalStorage(text, completed) {
-    const todoIndex = savedTodos.findIndex(todo => todo.text === text);
-    if (todoIndex > -1) {
-        savedTodos[todoIndex].completed = completed;
-        localStorage.setItem("todos", JSON.stringify(savedTodos));
-    }
+function updateLocalStorage(id, completed) {
+    const todoIndex = savedTodos.findIndex(todo => todo.id === id);
+    savedTodos[todoIndex].completed = completed;
+    localStorage.setItem("todos", JSON.stringify(savedTodos));
 }
 
-function deleteFromLocalStorage(text) {
-    savedTodos = savedTodos.filter(todo => todo.text !== text);
+function deleteFromLocalStorage(id) {
+    savedTodos = savedTodos.filter(todo => todo.id !== id);
     localStorage.setItem("todos", JSON.stringify(savedTodos));
 }
 
