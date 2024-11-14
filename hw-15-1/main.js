@@ -2,7 +2,7 @@ const form = document.querySelector(".js--form");
 const input = document.querySelector(".js--form__input");
 const todosWrapper = document.querySelector(".js--todos-wrapper");
 
-const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+let savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
 
 function initializeTodos() {
     savedTodos.forEach(todo => {
@@ -66,8 +66,8 @@ function updateLocalStorage(text, completed) {
 }
 
 function deleteFromLocalStorage(text) {
-    const updatedTodos = savedTodos.filter(todo => todo.text !== text);
-    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+    savedTodos = savedTodos.filter(todo => todo.text !== text);
+    localStorage.setItem("todos", JSON.stringify(savedTodos));
 }
 
 initializeTodos();
