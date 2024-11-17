@@ -25,41 +25,47 @@ form.addEventListener("submit", (e) => {
 
 const createId = () => {
     serialNumber++;
-    localStorage.setItem("serialNumber", serialNumber);
+    localStorage.setItem("serialNumber", serialNumber.toString());
     return serialNumber;
 }
 
 function addTodoToDOM(id, text, completed) {
     const li = document.createElement("li");
     li.classList.add("todo-item");
+    li.dataset.id = id;
     if (completed) li.classList.add("todo-item--checked");
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.checked = completed;
-    checkbox.addEventListener("change", () => {
-        li.classList.toggle("todo-item--checked");
-        updateLocalStorage(id, checkbox.checked);
-    });
-
-    const span = document.createElement("span");
-    span.textContent = text;
-    span.classList.add("todo-item__description");
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete";
-    deleteBtn.classList.add("todo-item__delete");
-    deleteBtn.addEventListener("click", () => {
-        li.remove();
-        deleteFromLocalStorage(id);
-    });
-
-    li.appendChild(checkbox);
-    li.appendChild(span);
-    li.appendChild(deleteBtn);
+    li.innerHTML = `
+        <input type="checkbox" class="todo-checkbox" ${completed ? "checked" : ""}>
+        <span class="todo-item__description">${text}</span>
+        <button class="todo-item__delete">Delete</button>
+    `;
 
     todosWrapper.appendChild(li);
 }
+
+
+todosWrapper.addEventListener("click", (e) => {
+    const target = e.target;
+
+    if (target.classList.contains("todo-checkbox")) {
+        const li = target.closest(".todo-item");
+        const id = +li.dataset.id;
+        const isChecked = target.checked;
+
+        li.classList.toggle("todo-item--checked", isChecked);
+        updateLocalStorage(id, isChecked);
+    }
+
+    if (target.classList.contains("todo-item__delete")) {
+        const li = target.closest(".todo-item");
+        const id = +li.dataset.id;
+
+        li.remove();
+        deleteFromLocalStorage(id);
+    }
+});
+
 
 function saveToLocalStorage(id, text, completed) {
     savedTodos.push({id, text, completed});
