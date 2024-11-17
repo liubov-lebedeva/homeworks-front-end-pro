@@ -1,53 +1,57 @@
-document.getElementById('form-contact-box').addEventListener('submit', function(event) {
+const regex = {
+    name: /^[a-zA-Z\s]+$/,
+    phone: /^\+380\d{9}$/,
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    message: /\w{5}/
+};
+
+function validateField(regex, fieldId, errorMessage) {
+    const field = document.getElementById(fieldId);
+    const value = field.value.trim();
+    const errorElement = document.getElementById(`${fieldId}-error`);
+
+    if (!regex.test(value)) {
+        errorElement.textContent = errorMessage;
+        return false;
+    }
+    errorElement.textContent = '';
+    return true;
+}
+
+
+function addDynamicErrorClearing(fieldId) {
+    const field = document.getElementById(fieldId);
+    const errorElement = document.getElementById(`${fieldId}-error`);
+    field.addEventListener('input', () => {
+        errorElement.textContent = '';
+    });
+}
+
+['name', 'message', 'phone', 'email'].forEach(addDynamicErrorClearing);
+
+
+document.getElementById('form-contact-box').addEventListener('submit', function (event) {
     event.preventDefault();
 
-    function displayError(elementId, message) {
-        document.getElementById(elementId).textContent = message;
-    }
 
-    function clearErrors() {
-        document.getElementById('name-error').textContent = '';
-        document.getElementById('message-error').textContent = '';
-        document.getElementById('phone-error').textContent = '';
-        document.getElementById('email-error').textContent = '';
-    }
+    const isNameValid = validateField(regex.name, 'name', 'Name must only contain letters and spaces.');
+    const isMessageValid = validateField(regex.message, 'message', 'Message must be at least 5 characters long.');
+    const isPhoneValid = validateField(regex.phone, 'phone', 'Phone number must start with +380 and contain 12 digits.');
+    const isEmailValid = validateField(regex.email, 'email', 'Please enter a valid email with @ and a dot.');
 
-    clearErrors();
+    if (isNameValid && isMessageValid && isPhoneValid && isEmailValid) {
+        const name = document.getElementById('name').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const email = document.getElementById('email').value.trim();
 
-    let isValid = true;
-
-    const name = document.getElementById('name').value.trim();
-    if (!name) {
-        displayError('name-error', 'Name is required.');
-        isValid = false;
-    }
-
-    const message = document.getElementById('message').value.trim();
-    if (message.length < 5) {
-        displayError('message-error', 'Message must be at least 5 characters long.');
-        isValid = false;
-    }
-
-    const phone = document.getElementById('phone').value.trim();
-    const phoneRegex = /^\+380\d{9}$/;
-    if (!phoneRegex.test(phone)) {
-        displayError('phone-error', 'Phone number must start with +380 and contain 12 digits.');
-        isValid = false;
-    }
-
-    const email = document.getElementById('email').value.trim();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        displayError('email-error', 'Please enter a valid email with @ and a dot.');
-        isValid = false;
-    }
-
-    if (isValid) {
         console.log(`
         Name: ${name}
         Message: ${message}
         Phone: ${phone}
-        Email: ${email}`);
+        Email: ${email}
+        `);
+
         document.getElementById('form-contact-box').reset();
     }
 });
