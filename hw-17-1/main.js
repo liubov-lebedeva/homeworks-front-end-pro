@@ -1,25 +1,22 @@
 class Calculator {
-    constructor() {
 
+
+    add(a, b) {
+        return a + b;
     }
 
 
-    add() {
-
+    subtract(a, b) {
+        return a - b;
     }
 
 
-    subtract() {
-
+    multiply(a, b) {
+        return a * b;
     }
 
 
-    multiply() {
-
-    }
-
-
-    divide() {
-
+    divide(a, b) {
+        return b === 0 ? "Cannot divide by zero" : a / b;
     }
 }
