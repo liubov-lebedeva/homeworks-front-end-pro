@@ -311,3 +311,15 @@ h1, h2 {
     width: 95px;
     padding: 10px;
 }
+
+#timer {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#timer.time-up {
+    color: #ff4343;
+    transition: color 0.5s ease-in-out;
+}
