@@ -14,7 +14,7 @@ function startTimer(duration) {
 
     const interval = setInterval(() => {
         timer.textContent = convertTimeFormat(remainingTime);
-        if (remainingTime === 0) {
+        if (remainingTime <= 0) {
             clearInterval(interval);
             timer.textContent = "Time is up";
             timer.classList.add("time-up");
