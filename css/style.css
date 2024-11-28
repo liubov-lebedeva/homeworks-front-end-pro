@@ -324,6 +324,14 @@ h1, h2 {
     transition: color 0.5s ease-in-out;
 }
 
+.weather-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
 .weather-box {
     background-color: #96c4ec;
     border: 2px solid black;
