@@ -323,3 +323,59 @@ h1, h2 {
     color: #ff4343;
     transition: color 0.5s ease-in-out;
 }
+
+.weather-box {
+    background-color: #96c4ec;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.weather-box p {
+    font-size: 18px;
+    padding: 5px;
+}
+
+.refresh-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.refresh-btn:hover {
+    background-color: #45a049;
+}
+
+.error {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.refresh-btn:active {
+    transform: scale(0.8);
+}
+
+.time {
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+}
