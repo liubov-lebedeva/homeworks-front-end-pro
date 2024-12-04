@@ -255,6 +255,7 @@ td {
     width: 100%;
     margin: 10px auto 0;
     max-width: 75%;
+    border-radius: 10px;
 }
 
 h1, h2 {
@@ -269,6 +270,7 @@ h1, h2 {
     margin-bottom: 25px;
     display: flex;
     justify-content: center;
+    border-radius: 10px;
 }
 
 .form__input {
@@ -386,4 +388,8 @@ h1, h2 {
     font-size: 16px;
     color: #333;
     margin-top: 10px;
+}
+
+.js--todos-wrapper {
+    padding: 0;
 }
