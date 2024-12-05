@@ -29,11 +29,22 @@ const createId = () => {
     return serialNumber;
 }
 
+
+function saveToLocalStorage(id, text, completed) {
+    savedTodos.push({id, text, completed});
+    localStorage.setItem("todos", JSON.stringify(savedTodos));
+    localStorage.setItem("serialNumber", serialNumber.toString());
+}
+
+
 function addTodoToDOM(id, text, completed) {
     const li = document.createElement("li");
     li.classList.add("todo-item");
     li.dataset.id = id;
+    li.dataset.text = text;
     li.innerHTML = `
+        <input type="checkbox" class="todo-checkbox" ${completed ? "checked" : ""}>
+        <button class="todo-item__delete">Delete</button>
         <span class="todo-text">${text}</span>
         <button class="btn btn-info btn-sm ms-2 show-details-btn" data-bs-toggle="modal" data-bs-target="#taskModal">Details</button>
     `;
@@ -42,29 +53,34 @@ function addTodoToDOM(id, text, completed) {
     li.querySelector(".show-details-btn").addEventListener("click", () => {
         showTaskText(text);
     });
+
+    li.querySelector(".todo-item__delete").addEventListener("click", () => {
+        deleteFromLocalStorage(id, li);
+    });
+
+    li.querySelector(".todo-checkbox").addEventListener("change", (e) => {
+        const completed = e.target.checked;
+        updateLocalStorage(id, completed);
+    });
 }
+
 
 function showTaskText(text) {
-    const taskText = document.getElementById("taskText");
-    taskText.textContent = text;
+    document.getElementById("taskText").innerText = text;
 }
 
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const taskText = input.value.trim();
-    if (taskText) {
-        const id = createId();
-        addTodoToDOM(id, taskText, false);
-        saveToLocalStorage(id, taskText, false);
-        input.value = '';
-    }
-});
-
-function saveToLocalStorage(id, text, completed) {
-    savedTodos.push({id, text, completed});
+function updateLocalStorage(id, completed) {
+    const todoIndex = savedTodos.findIndex(todo => todo.id === id);
+    savedTodos[todoIndex].completed = completed;
     localStorage.setItem("todos", JSON.stringify(savedTodos));
-    localStorage.setItem("serialNumber", serialNumber.toString());
 }
+
+function deleteFromLocalStorage(id, li) {
+    todosWrapper.removeChild(li);
+    savedTodos = savedTodos.filter(todo => todo.id !== id);
+    localStorage.setItem("todos", JSON.stringify(savedTodos));
+}
+
 
 initializeTodos();
