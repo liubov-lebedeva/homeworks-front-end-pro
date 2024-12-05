@@ -348,7 +348,6 @@ h1, h2 {
     transition: 0.4s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-
 .todo-text {
     flex-grow: 1;
     padding-left: 10px;
@@ -356,10 +355,17 @@ h1, h2 {
     color: #333;
     white-space: normal;
     word-wrap: break-word;
-    overflow: scroll;
     max-width: 70%;
     max-height: 20px;
-    flex-wrap: nowrap;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+#taskText {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 .todo-buttons {
