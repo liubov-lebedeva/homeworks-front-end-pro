@@ -290,11 +290,25 @@ h1, h2 {
 .todo-item {
     display: flex;
     padding: 10px;
-    background: #fff;
     border-radius: 10px;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.todo-item__content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-item:hover {
+    background-color: #f0f0f0;
 }
 
 .todo-item--checked {
@@ -321,6 +335,53 @@ h1, h2 {
     width: 100px;
 }
 
+.show-details-btn:hover {
+    background-color: #78e1fc;
+}
+
+.todo-item__delete:hover {
+    background-color: #4beeb3;
+}
+
+.todo-item__delete:active, .show-details-btn:active {
+    transform: scale(0.9);
+    transition: 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+
+.todo-text {
+    flex-grow: 1;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #333;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: scroll;
+    max-width: 70%;
+    max-height: 20px;
+    flex-wrap: nowrap;
+}
+
+.todo-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.todo-text.scrollable {
+    overflow-y: auto;
+    max-height: 60px;
+}
+
+.todo-item__delete,
+.show-details-btn {
+    width: 100px;
+}
+
+.todo-checkbox {
+    margin-right: 10px;
+    flex-shrink: 0;
+}
 
 /* TIMER */
 #timer {
