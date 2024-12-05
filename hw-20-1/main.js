@@ -43,10 +43,15 @@ function addTodoToDOM(id, text, completed) {
     li.dataset.id = id;
     li.dataset.text = text;
     li.innerHTML = `
-        <input type="checkbox" class="todo-checkbox" ${completed ? "checked" : ""}>
-        <button class="todo-item__delete">Delete</button>
-        <span class="todo-text">${text}</span>
-        <button class="btn btn-info btn-sm ms-2 show-details-btn" data-bs-toggle="modal" data-bs-target="#taskModal">Details</button>
+        <div>
+             <input type="checkbox" class="todo-checkbox" ${completed ? "checked" : ""}>
+             <span class="todo-text">${text}</span>
+        </div>
+        <div>
+            <button class="todo-item__delete">Delete</button>
+            <button class="btn btn-info btn-sm ms-2 show-details-btn" data-bs-toggle="modal" data-bs-target="#taskModal">Details</button>
+        </div>
+        
     `;
     todosWrapper.appendChild(li);
 

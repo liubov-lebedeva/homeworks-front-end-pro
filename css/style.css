@@ -311,9 +311,18 @@ h1, h2 {
     border: none;
     cursor: pointer;
     width: 95px;
-    padding: 10px;
+    padding: 7px;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
 }
 
+.todo-item__delete,
+.show-details-btn {
+    width: 100px;
+}
+
+
+/* TIMER */
 #timer {
     font-size: 48px;
     font-weight: bold;
