@@ -1,11 +1,19 @@
 {
   "name": "hw-22-1",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "src/js/main.js",
+  "scripts": {
+    "build": "webpack"
+  },
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "webpack": "^5.97.1"
+    "css-loader": "^7.1.2",
+    "sass": "^1.82.0",
+    "sass-loader": "^16.0.4",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
   }
 }

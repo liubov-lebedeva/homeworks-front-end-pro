@@ -1,3 +1,5 @@
+import '../scss/style.scss';
+
 const weatherDiv = document.getElementById('weather');
 const refreshBtn = document.getElementById('refreshBtn');
 
