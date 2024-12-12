@@ -1,0 +1,85 @@
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 50px 15px;
+}
+
+.homeworks-list {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.homeworks-item a {
+  text-decoration: none;
+  display: block;
+  border: 2px solid black;
+  color: #103d43;
+  border-radius: 30px;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.homeworks-item a:hover {
+  color: white;
+  background: #103d43;
+}
+
+.home a {
+  color: #103d43;
+  background: #ffd07a;
+}
+
+.weather-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.weather-box {
+  background-color: #96c4ec;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-box h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.weather-box p {
+  font-size: 18px;
+  padding: 5px;
+}
+
+.refresh-btn {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.refresh-btn:hover {
+  background-color: #45a049;
+}
+
+.form-title {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 14px;
+}
