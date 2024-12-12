@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "src/js/main.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --mode=production",
+    "watch": "webpack --watch --mode=development"
   },
   "author": "",
   "license": "ISC",
