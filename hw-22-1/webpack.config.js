@@ -20,6 +20,12 @@ module.exports = {
             },
         ],
     },
+    devServer: {
+        static: './dist',
+        hot: true,
+        open: true,
+        port: 8080
+    },
     plugins: [
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
