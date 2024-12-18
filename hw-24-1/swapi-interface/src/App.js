@@ -2,9 +2,21 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
+const Title = () => {
+
+}
+const UrlInput = () => {
+
+}
+const Buttons = () => {
+
+}
+const JsonPlaceholder = () => {
+
+}
 const App = () => {
     return (
-        <div className={container}>
+        <div className="container">
             <Title />
             <UrlInput />
             <Buttons />
