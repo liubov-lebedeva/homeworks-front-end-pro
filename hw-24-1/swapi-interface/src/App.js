@@ -1,15 +1,24 @@
 import React from "react";
-import {Container, Row, Col, Button, Form} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-function App() {
+const App = () => {
+    return (
+        <div className={container}>
+            <Title />
+            <UrlInput />
+            <Buttons />
+            <JsonPlaceholder />
+        </div>
+    );
+}
+/*function App() {
     return (
         <Container className="mt-4">
-            {/* Title */}
+            {/!* Title *!/}
             <h1 className="text-center mb-4">SWAPI</h1>
 
-            {/* URL Input Field */}
+            {/!* URL Input Field *!/}
             <Row className="mb-3">
                 <Col md={10}>
                     <Form.Control type="text" value="https://swapi.dev/api/people/1/" readOnly/>
@@ -21,7 +30,7 @@ function App() {
                 </Col>
             </Row>
 
-            {/* Buttons */}
+            {/!* Buttons *!/}
             <Row className="mb-3">
                 <Col>
                     <Button variant="dark" className="me-2" disabled>
@@ -30,7 +39,7 @@ function App() {
                 </Col>
             </Row>
 
-            {/* Placeholder JSON */}
+            {/!* Placeholder JSON *!/}
             <Row>
                 <Col>
                     <div className="json-container p-3 border rounded">
@@ -64,6 +73,6 @@ function App() {
             </Row>
         </Container>
     );
-}
+}*/
 
 export default App;
