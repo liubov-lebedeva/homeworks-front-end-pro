@@ -469,3 +469,61 @@ h1, h2 {
 .js--todos-wrapper {
     padding: 0;
 }
+
+/CURD/
+
+.input {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    margin: 5px 0;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px 5px 5px 0;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+.delete-btn {
+    background-color: #FF4D4D;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
