@@ -4,3 +4,8 @@ const getTodos = async () => {
 }
 
 getTodos();
+
+document.querySelector('#get').addEventListener('click', async () => {
+    const todos = await getTodos();
+    console.log(todos);
+});
