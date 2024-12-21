@@ -21,10 +21,12 @@ document.querySelector('#get').addEventListener('click', async () => {
 });
 
 document.querySelector('#add').addEventListener('click', async () => {
-    const text = document.querySelector('#todo-text').value;
+    const placeholder = document.querySelector('#todo-text');
+    const text = placeholder.value;
     if (!text) {
         return;
     }
+    placeholder.value = '';
     const newTodo = await addTodo(text);
     console.log(newTodo);
 });
