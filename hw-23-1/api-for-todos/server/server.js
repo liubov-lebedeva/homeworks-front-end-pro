@@ -19,5 +19,13 @@ app.post('/api/todos', (req, res) => {
     res.send(newTodo);
 });
 
+app.delete('/api/todos/:id', (req, res) => {
+    const id = +req.params.id;
+    const amountBefore = todos.length;
+    todos = todos.filter((todo) => todo.id !== id);
+    const dif = amountBefore - todos.length;
+    res.send({isSuccess: dif > 0});
+})
+
 
 /*const mongoURI = 'mongodb+srv://lebedlyuba:tVBABJA2Pf0qGqSX@cluster0.1qijc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'*/
