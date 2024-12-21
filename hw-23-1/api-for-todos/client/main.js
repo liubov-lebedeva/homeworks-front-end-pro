@@ -11,6 +11,7 @@ const addTodo = async (text) => {
             text: text
         })
     });
+    return await response.json();
 }
 
 
@@ -19,10 +20,11 @@ document.querySelector('#get').addEventListener('click', async () => {
     console.log(todos);
 });
 
-document.querySelector('#add').addEventListener('click', () => {
+document.querySelector('#add').addEventListener('click', async () => {
     const text = document.querySelector('#todo-text').value;
     if (!text) {
         return;
     }
-    addTodo(text);
+    const newTodo = await addTodo(text);
+    console.log(newTodo);
 });
