@@ -25,6 +25,14 @@ app.delete('/api/todos/:id', (req, res) => {
     todos = todos.filter((todo) => todo.id !== id);
     const dif = amountBefore - todos.length;
     res.send({isSuccess: dif > 0});
+});
+
+app.put('/api/todos/:id', (req, res) => {
+    const id = +req.params.id;
+    const changedTodo = todos.find((todo) => todo.id === id);
+    changedTodo.text = req.body.text;
+    changedTodo.checked = req.body.isCompleted;
+    res.send(changedTodo);
 })
 
 

@@ -22,6 +22,18 @@ const deleteTodo = async (id) => {
     return bodyRes.isSuccess;
 }
 
+const updateTodo = async (id, text, isCompleted) => {
+    const response = await fetch(`http://localhost:8080/api/todos/${id}`, {
+        method: "PUT",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            text: text,
+            isCompleted: isCompleted
+        })
+    })
+    return await response.json();
+}
+
 
 document.querySelector('#get').addEventListener('click', async () => {
     const todos = await getTodos();
@@ -48,4 +60,21 @@ document.querySelector('#delete').addEventListener('click', async () => {
     placeholder.value = '';
     const isSuccess = await deleteTodo(id);
     console.log("Is deleted?", isSuccess);
+});
+
+document.querySelector('#change').addEventListener('click', async () => {
+    const idPlaceholder = document.querySelector('#change-todo-id');
+    const textPlaceholder = document.querySelector('#change-todo');
+    const status = document.querySelector('#status');
+    const id = idPlaceholder.value;
+    const text = textPlaceholder.value;
+    const isCompleted = status.checked;
+    if (!id) {
+        return;
+    }
+    idPlaceholder.value = '';
+    textPlaceholder.value = '';
+    status.checked = false;
+    const changedTodo = await updateTodo(id, text, isCompleted);
+    console.log(changedTodo);
 })
