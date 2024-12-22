@@ -18,8 +18,7 @@ const deleteTodo = async (id) => {
     const response = await fetch(`http://localhost:8080/api/todos/${id}`, {
         method: "DELETE"
     })
-    const bodyRes = await response.json();
-    return bodyRes.isSuccess;
+    return await response.json();
 }
 
 const updateTodo = async (id, text, isCompleted) => {
