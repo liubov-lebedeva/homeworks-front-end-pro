@@ -1,10 +1,11 @@
+const address = "http://localhost:8080/api/todos";
 const getTodos = async () => {
-    const response = await fetch("http://localhost:8080/api/todos");
+    const response = await fetch(`${address}`);
     return await response.json();
 }
 
 const addTodo = async (text) => {
-    const response = await fetch("http://localhost:8080/api/todos", {
+    const response = await fetch(`${address}`, {
         method: "POST",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -15,14 +16,14 @@ const addTodo = async (text) => {
 }
 
 const deleteTodo = async (id) => {
-    const response = await fetch(`http://localhost:8080/api/todos/${id}`, {
+    const response = await fetch(`${address}/${id}`, {
         method: "DELETE"
     })
     return await response.json();
 }
 
 const updateTodo = async (id, text, isCompleted) => {
-    const response = await fetch(`http://localhost:8080/api/todos/${id}`, {
+    const response = await fetch(`${address}/${id}`, {
         method: "PUT",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
