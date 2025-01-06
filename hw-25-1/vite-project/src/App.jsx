@@ -1,12 +1,8 @@
-import { Component } from 'react';
 import SmileVote from "./components/SmileVote.jsx";
 
-const App = () => {
-  return (
-    <>
-        <SmileVote />
-    </>
-  )
-}
+const App = () => (
+    <SmileVote/>
+)
+
 
 export default App;
