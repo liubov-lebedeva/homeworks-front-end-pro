@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import Smile from "./Smile.jsx";
+import Result from "./Result.jsx";
 import "../App.css";
 
 class SmileVote extends Component {
@@ -18,6 +18,14 @@ class SmileVote extends Component {
         }
     }
 
+    componentDidMount() {
+        const savedSmiles = JSON.parse(localStorage.getItem('smileVotes'));
+        if (savedSmiles) {
+            this.setState({smiles: savedSmiles});
+        }
+    }
+
+
     updateSmileVote = (smileName) => {
         const newState = this.state.smiles.map((smile) => {
             if (smileName === smile.name) {
@@ -30,13 +38,6 @@ class SmileVote extends Component {
         }, () => {
             localStorage.setItem('smileVotes', JSON.stringify(this.state.smiles));
         });
-    }
-
-    componentDidMount() {
-        const savedSmiles = JSON.parse(localStorage.getItem('smileVotes'));
-        if (savedSmiles) {
-            this.setState({smiles: savedSmiles});
-        }
     }
 
     onClickShowResults = () => {
@@ -72,19 +73,6 @@ class SmileVote extends Component {
 
 
     render() {
-        let showResult;
-        if (this.state.showResult && this.state.winner) {
-            showResult = <div>
-                <h2>Votes result:</h2>
-                <h3>Winner:</h3>
-                <div className="winner">{this.state.winner.icon}</div>
-                <div>Votes amount: {this.state.winner.votes}</div>
-            </div>
-        } else if (this.state.showResult && !this.state.winner) {
-            showResult = <div>
-                <h2>No votes yet</h2>
-            </div>
-        }
         return (
             <div className="container">
                 <h1>Vote for the best emoji</h1>
@@ -99,7 +87,10 @@ class SmileVote extends Component {
                     <button onClick={this.onClickShowResults}>Show results</button>
                     <button onClick={this.onClickClearResults}>Clear results</button>
                 </div>
-                {showResult}
+                <Result
+                    showResult={this.state.showResult}
+                    winner={this.state.winner}
+                />
             </div>
         )
     }
