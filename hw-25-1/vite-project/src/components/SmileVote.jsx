@@ -39,7 +39,6 @@ class SmileVote extends Component {
         }
     }
 
-
     onClickShowResults = () => {
         let maxValue = 0;
         let winner = null;
@@ -66,6 +65,8 @@ class SmileVote extends Component {
             smiles: resetSmiles,
             showResult: false,
             winner: null
+        }, () => {
+            localStorage.setItem('smileVotes', JSON.stringify(resetSmiles));
         });
     }
 
