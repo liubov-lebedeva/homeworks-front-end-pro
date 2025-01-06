@@ -1,7 +1,7 @@
 import {Component} from 'react';
 import Button from "./Button.jsx";
 import Result from "./Result.jsx";
-import SmileButton from "./SmileButton.jsx";
+import SmileList from "./SmileList.jsx";
 import Header from "./Header.jsx";
 import "../App.css";
 
@@ -79,17 +79,7 @@ class SmileVote extends Component {
         return (
             <div className="container">
                 <Header title="Vote for the best emoji" />
-                <div className="emoji-container">
-                    {this.state.smiles.map((smile) => (
-                        <SmileButton
-                            key={smile.name}
-                            icon={smile.icon}
-                            votes={smile.votes}
-                            smileName={smile.name}
-                            onVote={this.updateSmileVote}
-                        />
-                    ))}
-                </div>
+                <SmileList smiles={this.state.smiles} onVote={this.updateSmileVote} />
                 <div className="button-container">
                     <Button
                         text="Show results"
