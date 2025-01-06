@@ -1,4 +1,5 @@
 import {Component} from 'react';
+import Button from "./Button.jsx";
 import Result from "./Result.jsx";
 import SmileButton from "./SmileButton.jsx";
 import Header from "./Header.jsx";
@@ -89,9 +90,15 @@ class SmileVote extends Component {
                         />
                     ))}
                 </div>
-                <div className="buttons">
-                    <button onClick={this.onClickShowResults}>Show results</button>
-                    <button onClick={this.onClickClearResults}>Clear results</button>
+                <div className="button-container">
+                    <Button
+                        text="Show results"
+                        onClick={this.onClickShowResults}
+                    />
+                    <Button
+                        text="Clear results"
+                        onClick={this.onClickClearResults}
+                    />
                 </div>
                 <Result
                     showResult={this.state.showResult}
