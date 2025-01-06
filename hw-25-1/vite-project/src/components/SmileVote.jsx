@@ -40,9 +40,23 @@ class SmileVote extends Component {
             }
         }
 
-        if (winner) {
-            this.setState({showResult: true, winner: winner});
-        }
+        this.setState({
+            showResult: true,
+            winner: winner
+        });
+
+    }
+
+    onClickClearResults = () => {
+        const resetSmiles = this.state.smiles.map(smile => ({
+            ...smile,
+            votes: 0
+        }));
+        this.setState({
+            smiles: resetSmiles,
+            showResult: false,
+            winner: null
+        });
     }
 
 
@@ -56,7 +70,9 @@ class SmileVote extends Component {
                 <div>Votes amount: {this.state.winner.votes}</div>
             </div>
         } else if (this.state.showResult && !this.state.winner) {
-            showResult = <div>No votes yet</div>
+            showResult = <div>
+                <h2>No votes yet</h2>
+            </div>
         }
         return (
             <div className="container">
@@ -68,7 +84,10 @@ class SmileVote extends Component {
                         )
                     })}
                 </div>
-                <button onClick={this.onClickShowResults}>Show results</button>
+                <div className="buttons">
+                    <button onClick={this.onClickShowResults}>Show results</button>
+                    <button onClick={this.onClickClearResults}>Clear results</button>
+                </div>
                 {showResult}
             </div>
         )
