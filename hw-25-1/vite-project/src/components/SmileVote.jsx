@@ -27,8 +27,18 @@ class SmileVote extends Component {
         });
         this.setState({
             smiles: newState
-        })
+        }, () => {
+            localStorage.setItem('smileVotes', JSON.stringify(this.state.smiles));
+        });
     }
+
+    componentDidMount() {
+        const savedSmiles = JSON.parse(localStorage.getItem('smileVotes'));
+        if (savedSmiles) {
+            this.setState({smiles: savedSmiles});
+        }
+    }
+
 
     onClickShowResults = () => {
         let maxValue = 0;
