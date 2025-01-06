@@ -1,6 +1,7 @@
 import {Component} from 'react';
 import Result from "./Result.jsx";
 import SmileButton from "./SmileButton.jsx";
+import Header from "./Header.jsx";
 import "../App.css";
 
 class SmileVote extends Component {
@@ -76,7 +77,7 @@ class SmileVote extends Component {
     render() {
         return (
             <div className="container">
-                <h1>Vote for the best emoji</h1>
+                <Header title="Vote for the best emoji" />
                 <div className="emoji-container">
                     {this.state.smiles.map((smile) => (
                         <SmileButton
