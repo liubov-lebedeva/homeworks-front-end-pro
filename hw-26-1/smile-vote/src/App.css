@@ -1,0 +1,31 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.emoji-container {
+  font-size: 30px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.emoji-container button {
+  padding: 20px;
+  margin: 5px;
+}
+
+.winner {
+  font-size: 30px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
